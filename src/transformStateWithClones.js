@@ -12,24 +12,25 @@ function transformStateWithClones(state, actions) {
   const clrP = 'clear';
 
   let res = [];
+  let dummy = structuredClone(state);
 
-  for (const action in actions) {
+  for (const action of actions) {
     switch (action.type) {
       case addP :
-        Object.assign(state, action.extraData);
+        Object.assign(dummy, action.extraData);
         break;
       case rmvP :
         for (const key of action.keysToRemove) {
-          delete state[key];
+          delete dummy[key];
         }
         break;
       case clrP :
-        Object.keys(state).forEach(key => delete state[key]);
+        Object.keys(dummy).forEach(key => delete dummy[key]);
         break;
       default:
         break;
     }
-    res.push(structuredClone(state));
+    res.push(dummy);
  }
 
   return res;
