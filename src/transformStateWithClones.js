@@ -25,12 +25,11 @@ function transformStateWithClones(state, actions) {
         }
         break;
       case clrP :
-        Object.keys(dummy).forEach(key => delete dummy[key]);
+        dummy = {};
         break;
       default:
         break;
     }
-    console.log(action.type,dummy);
     res.push(dummy);
  }
 
