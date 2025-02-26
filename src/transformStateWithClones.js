@@ -30,6 +30,7 @@ function transformStateWithClones(state, actions) {
       default:
         break;
     }
+    console.log(action.type,dummy);
     res.push(dummy);
  }
 
