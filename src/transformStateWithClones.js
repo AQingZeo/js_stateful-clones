@@ -30,7 +30,7 @@ function transformStateWithClones(state, actions) {
       default:
         break;
     }
-    res.push(dummy);
+    res.push(structuredClone(dummy));
  }
 
   return res;
